@@ -1,9 +1,15 @@
 server:
   port: 8855
+
 spring:
-  datasourse:
+  datasource:
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:file:./test;
+    url: jdbc:h2:file:./data/blogdb
+    username: gaurav
+    password:
+  h2:
+    console:
+      enabled: true
   jpa:
     hibernate:
-      ddl-auto: create # in prod, use update, NOT create
+      ddl-auto: update
