@@ -35,7 +35,7 @@ public class ArticleEntity {
     private String subTitle;
 
     @NonNull
-    private String Body;
+    private String body;
 
     @CreatedDate
     private Date createdAt;

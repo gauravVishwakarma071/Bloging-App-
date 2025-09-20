@@ -1,7 +1,11 @@
 package com.spring_boot.blog_app.users;
 
+import com.spring_boot.blog_app.articles.ArticleEntity;
+import com.spring_boot.blog_app.users.dtos.CreateUserRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -11,36 +15,48 @@ public class UsersService {
 
 
     //Creating new users
-    public UserEntity createUser(String username, String password, String email){
+    public UserEntity createUser(CreateUserRequest u){
         var newUser = UserEntity.builder()
-                .username(username)
+                .username(u.getUsername())
 //                .password(password)// TODO: encrypt password and save it
-                .email(email)
+                .email(u.getEmail())
                 .build();
 
         return usersRepository.save(newUser);
     }
 
-    //Find user by its username
-    public UserEntity getUser(String username){
-        return usersRepository.findByUsername(username);
+    //Get all articles
+    public Iterable<UserEntity> getAllUsers(){
+        return usersRepository.findAll();
+    }
+
+    //Get user by id
+    public UserEntity getUserById(Long userId){
+        return usersRepository.findById(userId).orElseThrow(()-> new UserNotFoundException(userId));
+    }
+
+    //Get user by username
+    public UserEntity getUserByUsername(String username){
+        return usersRepository.findByUsername(username).orElseThrow(()-> new UserNotFoundException(username));
     }
 
     //Login user
     public UserEntity loginuser(String username, String password){
-        var user = usersRepository.findByUsername(username);
-        if(user == null){
-            throw new UserNotFoundException(username);
-        }
+        var user = usersRepository.findByUsername(username).orElseThrow(()-> new IllegalArgumentException(username + "not found"));
 
         //TODO match password
         return user;
     }
 
     //Exception class for user not found
-    static class UserNotFoundException extends IllegalArgumentException{
+    public static class UserNotFoundException extends IllegalArgumentException{
+
         public UserNotFoundException(String username){
-            super("user" + username + " not found");
+            super("user with username" + username + " not found");
+        }
+
+        public UserNotFoundException(Long userId){
+            super("user with ID" + userId + " not found");
         }
     }
 }
