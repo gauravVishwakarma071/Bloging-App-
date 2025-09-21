@@ -1,5 +1,6 @@
 package com.spring_boot.blog_app;
 
+import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -14,9 +15,11 @@ public class jpaTestConfig {
     @Profile("test")
     public DataSource dataSource(){
 
-        var dataSourse = new DriverManagerDataSource();
-        dataSourse.setDriverClassName("org.h2.Driver");
-        dataSourse.setUrl("jdbc:h2:file:./data/blogdb:DB_CLOSE_DELAY=-1");
-        return dataSource();
+        HikariDataSource dataSource = new HikariDataSource();
+        dataSource.setDriverClassName("org.h2.Driver");
+        dataSource.setJdbcUrl("jdbc:h2:file:./data/blogdb");
+        dataSource.setUsername("gaurav");
+        dataSource.setPassword(""); // or leave null if no password
+        return dataSource;
     }
 }

@@ -2,14 +2,11 @@ package com.spring_boot.blog_app.articles;
 
 import com.spring_boot.blog_app.articles.dtos.CreateArticleRequest;
 import com.spring_boot.blog_app.articles.dtos.UpdateArticleRequest;
-import com.spring_boot.blog_app.users.UserEntity;
 import com.spring_boot.blog_app.users.UsersRepository;
-import com.spring_boot.blog_app.users.UsersService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
+import com.spring_boot.blog_app.exception.UserNotFoundException;
 
 @Service
 @AllArgsConstructor
@@ -21,7 +18,7 @@ public class ArticlesService {
 
     //Create an article
     public ArticleEntity createArticle(CreateArticleRequest a, Long authorId){
-        var author = usersRepository.findById(authorId).orElseThrow(()-> new UsersService.UserNotFoundException(authorId));
+        var author = usersRepository.findById(authorId).orElseThrow(()-> new UserNotFoundException(authorId));
 
         return articlesRepository.save(ArticleEntity.builder()
                 .title(a.getTitle())
