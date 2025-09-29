@@ -3,6 +3,7 @@ package com.spring_boot.blog_app.users;
 import com.spring_boot.blog_app.users.dtos.CreateUserRequest;
 import com.spring_boot.blog_app.exception.UserNotFoundException;
 import lombok.AllArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -10,13 +11,13 @@ import org.springframework.stereotype.Service;
 public class UsersService {
 
     private final UsersRepository usersRepository;
+    private final ModelMapper modelMapper;
 
     // Creating new users
-    public UserEntity createUser(CreateUserRequest u) {
-        var newUser = UserEntity.builder()
-                .username(u.getUsername())
-                .email(u.getEmail())
-                .build();
+    public UserEntity createUser(CreateUserRequest request) {
+
+        UserEntity newUser = modelMapper.map(request,UserEntity.class);
+       // TODO: save and encrypt password
 
         return usersRepository.save(newUser);
     }
