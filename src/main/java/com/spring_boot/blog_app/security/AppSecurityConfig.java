@@ -17,7 +17,7 @@ public class AppSecurityConfig {
                 .cors(AbstractHttpConfigurer::disable) // disable or configure CORS
                 .csrf(AbstractHttpConfigurer::disable) // disable CSRF
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.POST, "/users", "/users/login").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/users", "/users/login", "/users/signup").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(AbstractAuthenticationFilterConfigurer::permitAll) // enables form login
