@@ -1,6 +1,7 @@
 package com.spring_boot.blog_app.users;
 
 import com.spring_boot.blog_app.common.dtos.ErrorResponse;
+import com.spring_boot.blog_app.exception.InvalidCredentialsException;
 import com.spring_boot.blog_app.exception.UserNotFoundException;
 import com.spring_boot.blog_app.users.dtos.CreateUserRequest;
 import com.spring_boot.blog_app.users.dtos.UserResponse;
@@ -45,16 +46,21 @@ public class UserController {
     }
 
     @ExceptionHandler({
-            UserNotFoundException.class
+            UserNotFoundException.class,
+            InvalidCredentialsException.class
+
     })
-    ResponseEntity<ErrorResponse> handleUserNotFoundException(Exception ex){
+    ResponseEntity<ErrorResponse> handleUsersExceptions(Exception ex){
         String message;
         HttpStatus status;
 
         if(ex instanceof UserNotFoundException){
            message = ex.getMessage();
            status = HttpStatus.NOT_FOUND;
-        } else{
+        } else if (ex instanceof InvalidCredentialsException){
+            message = ex.getMessage();
+            status = HttpStatus.UNAUTHORIZED;
+        }else{
             message = "Something went wrong";
             status = HttpStatus.INTERNAL_SERVER_ERROR;
         }
@@ -65,5 +71,4 @@ public class UserController {
 
         return ResponseEntity.status(status).body(reponse);
     }
-
 }
