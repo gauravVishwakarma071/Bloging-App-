@@ -3,6 +3,7 @@ package com.spring_boot.blog_app.users;
 import com.spring_boot.blog_app.common.dtos.ErrorResponse;
 import com.spring_boot.blog_app.exception.InvalidCredentialsException;
 import com.spring_boot.blog_app.exception.UserNotFoundException;
+import com.spring_boot.blog_app.security.JWTService;
 import com.spring_boot.blog_app.users.dtos.CreateUserRequest;
 import com.spring_boot.blog_app.users.dtos.UserResponse;
 import com.spring_boot.blog_app.users.dtos.LoginUserRequest;
@@ -22,6 +23,7 @@ public class UserController {
 
     private final UsersService usersService;
     private final ModelMapper modelMapper;
+    private final JWTService jwtService;
 //    @GetMapping("")
 //    String getUsers(){
 //        return "Users";
@@ -32,17 +34,26 @@ public class UserController {
     ResponseEntity<UserResponse> signupUser(@RequestBody CreateUserRequest request){
         UserEntity newUser = usersService.createUser(request);
         URI newUserUri = URI.create("/users/" + newUser.getId());
+        var userResponse = modelMapper.map(newUser, UserResponse.class);
+        userResponse.setToken(
+                jwtService.createJwt(newUser.getId())
+        );
 
         return ResponseEntity.created(newUserUri)
-                .body(modelMapper.map(newUser, UserResponse.class));
+                .body(userResponse);
     }
 
     //User Login Function
     @PostMapping("/login")
     ResponseEntity<UserResponse> loginUser(@RequestBody LoginUserRequest request){
         UserEntity savedUser = usersService.loginUser(request.getUsername(), request.getPassword());
+        var userResponse = modelMapper.map(savedUser, UserResponse.class);
+        userResponse.setToken(
+                jwtService.createJwt(savedUser.getId())
 
-        return ResponseEntity.ok(modelMapper.map(savedUser, UserResponse.class));
+        );
+
+        return ResponseEntity.ok(userResponse);
     }
 
     @ExceptionHandler({
