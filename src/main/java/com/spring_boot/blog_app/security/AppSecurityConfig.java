@@ -35,6 +35,7 @@ public class AppSecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable) // disable CSRF
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.POST, "/users", "/users/login", "/users/signup").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/articles", "/articles/*").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(AbstractAuthenticationFilterConfigurer::permitAll) // enables form login
