@@ -7,29 +7,29 @@ This project is under development and is part of a learning journey following an
 
 🚀 Features
 
-* 🔐 User "signup" and "login" with "JWT authentication"
-* ✍️ Create, Read, Update, Delete (**CRUD**) operations for blog posts
-* 💬 Comment on articles
-* ❤️ Like/unlike posts
-* 👥 Follows a social media-like interaction model
-* 📘 Initially uses "H2", migrated to "PostgreSQL"
-* 🧩 Follows "MVC architecture"
-* 🧰 Integrated "Swagger UI" for API testing and documentation
+🔐 User "signup" and "login" with "JWT authentication"
+✍️ Create, Read, Update, Delete (**CRUD**) operations for blog posts
+💬 Comment on articles
+ ❤️ Like/unlike posts
+👥 Follows a social media-like interaction model
+📘 Initially uses "H2", migrated to "PostgreSQL"
+   Follows "MVC architecture"
+   Integrated "Swagger UI" for API testing and documentation
 
 ---
 
-## 🛠️ Technologies & Tools
+🛠️ Technologies & Tools
 
-| Category            | Tools / Frameworks                          |
-| ------------------- | ------------------------------------------- |
-| **Backend**         | Spring Boot, Spring Web, Spring Security    |
-| **Authentication**  | JWT (JSON Web Token), BCryptPasswordEncoder |
-| **Database**        | H2 (dev), PostgreSQL (prod)                 |
-| **ORM & Utilities** | Spring Data JPA, ModelMapper                |
-| **Testing**         | Spring Boot Starter Test                    |
-| **Documentation**   | Swagger UI                                  |
-| **Build Tool**      | Gradle                                      |
-| **IDE / DB Tools**  | IntelliJ IDEA, DBeaver                      |
+| Category        | Tools / Frameworks                          |
+| --------------- | ------------------------------------------- |
+| Backend         | Spring Boot, Spring Web, Spring Security    |
+| Authentication  | JWT (JSON Web Token), BCryptPasswordEncoder |
+| Database        | H2 (dev), PostgreSQL (prod)                 |
+| ORM & Utilities | Spring Data JPA, ModelMapper                |
+| Testing         | Spring Boot Starter Test                    |
+| Documentation   | Swagger UI                                  |
+| Build Tool      | Gradle                                      |
+| IDE / DB Tools  | IntelliJ IDEA, DBeaver                      |
 
 ---
 
@@ -47,12 +47,14 @@ The project follows **Model-View-Controller (MVC)** for clean separation of conc
 | "ArticleEntity" | id, title, slug, subTitle, body, createdAt, author | Blog posts created by users |
 | "CommentEntity" | id, title, body, createdAt, author, article        | Comments on articles        |
 
-"Relationships:"
+
+-----------------------------------------------------------------------------------------------------
+Relationships:
 
 * `ArticleEntity` → `UserEntity` (ManyToOne, author)
 * `CommentEntity` → `UserEntity` & `ArticleEntity` (ManyToOne)
 
----
+-----------------------------------------------------------------------------------------------------
 
 ⚙️ How to Run the Project
 
@@ -117,12 +119,12 @@ http://localhost:8855/swagger-ui/
 
 🧠 Learning Objectives
 
-* Implement **JWT authentication** with Spring Security
-* Use **ModelMapper** for DTO conversion
-* Set up **Swagger UI** for API testing
-* Apply **Gradle build automation**
-* Design a **REST API** using MVC architecture
-* Practice database migrations: **H2 → PostgreSQL**
+Implement "JWT authentication" with Spring Security
+Use "ModelMapper" for DTO conversion
+Set up "Swagger UI" for API testing
+Apply "Gradle build automation"
+Design a "REST API" using MVC architecture
+Practice database migrations: "H2 → PostgreSQL"
 
 ---
 
@@ -153,8 +155,8 @@ Special thanks to the online course and instructors guiding this **Spring Boot l
 
 💬 LinkedIn Post Caption
 
-> 🚀 **Just Built a Blogging Application using Spring Boot!**
-> I’ve been working on a mini **Blogging App**, a social-media-style platform where users can register, log in, create posts, like and comment — all secured using **Spring Security and JWT** 🔐
+> 🚀 Just Built a Blogging Application using Spring Boot!
+> I’ve been working on a mini (Blogging App), a social-media-style platform where users can register, log in, create posts, like and comment — all secured using **Spring Security and JWT** 🔐
 >
 > This project helped me dive deep into:
 > ✅ MVC Architecture
@@ -165,12 +167,9 @@ Special thanks to the online course and instructors guiding this **Spring Boot l
 >
 > The project is still under development as I continue learning and improving my Spring Boot skills 💡
 >
-> 🔗 Check it out on GitHub: [github.com/gauravVishwakarma071/Bloging-App](https://github.com/gauravVishwakarma071/Bloging-App)
+> 🔗 Check it out on GitHub: (https://github.com/gauravVishwakarma071/Bloging-App)
 >
 > #SpringBoot #Java #JWT #BackendDevelopment #LearningInPublic #OpenSource #APIDevelopment
 
----
-
-If you want, I can also make a **clean diagram of your MVC flow with entities** and **highlight upcoming features visually** for your README — it will make it more attractive to recruiters.
 
 Do you want me to do that next?
