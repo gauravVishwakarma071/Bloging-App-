@@ -1,24 +1,20 @@
-Perfect ✅ — I’ve gathered all the info you’ve shared so far. I’ll now create a **complete professional README.md** for your Spring Boot Blogging App that’s GitHub- and LinkedIn-ready. I’ve also included your entities, services, controllers, and tech stack.
+📝 Blogging Application - Spring Boot Mini Project
+
+A "Blogging Application" built with "Spring Boot", serving as a mini social media platform where users can register, log in, create posts, like posts, and comment on articles.
+This project is under development and is part of a learning journey following an online course, implementing "MVC architecture", "JWT authentication", and "Spring Security".
 
 ---
 
-# 📝 Blogging Application - Spring Boot Mini Project
+🚀 Features
 
-A **Blogging Application** built with **Spring Boot**, serving as a mini social media platform where users can register, log in, create posts, like posts, and comment on articles.
-This project is under development and is part of a learning journey following an online course, implementing **MVC architecture**, **JWT authentication**, and **Spring Security**.
-
----
-
-## 🚀 Features
-
-* 🔐 User **signup** and **login** with **JWT authentication**
+* 🔐 User "signup" and "login" with "JWT authentication"
 * ✍️ Create, Read, Update, Delete (**CRUD**) operations for blog posts
 * 💬 Comment on articles
 * ❤️ Like/unlike posts
 * 👥 Follows a social media-like interaction model
-* 📘 Initially uses **H2**, migrated to **PostgreSQL**
-* 🧩 Follows **MVC architecture**
-* 🧰 Integrated **Swagger UI** for API testing and documentation
+* 📘 Initially uses "H2", migrated to "PostgreSQL"
+* 🧩 Follows "MVC architecture"
+* 🧰 Integrated "Swagger UI" for API testing and documentation
 
 ---
 
@@ -37,51 +33,51 @@ This project is under development and is part of a learning journey following an
 
 ---
 
-## 🧩 Architecture
+🧩 Architecture
 
 The project follows **Model-View-Controller (MVC)** for clean separation of concerns:
 
-**Controller → Service → Repository → Entity (Model)**
+"Controller → Service → Repository → Entity (Model)"
 
 **Entities Overview:**
 
 | Entity            | Fields                                             | Description                 |
 | ----------------- | -------------------------------------------------- | --------------------------- |
-| **UserEntity**    | id, username, email, password, bio, image          | User details                |
-| **ArticleEntity** | id, title, slug, subTitle, body, createdAt, author | Blog posts created by users |
-| **CommentEntity** | id, title, body, createdAt, author, article        | Comments on articles        |
+| "UserEntity"    | id, username, email, password, bio, image          | User details                |
+| "ArticleEntity" | id, title, slug, subTitle, body, createdAt, author | Blog posts created by users |
+| "CommentEntity" | id, title, body, createdAt, author, article        | Comments on articles        |
 
-**Relationships:**
+"Relationships:"
 
 * `ArticleEntity` → `UserEntity` (ManyToOne, author)
 * `CommentEntity` → `UserEntity` & `ArticleEntity` (ManyToOne)
 
 ---
 
-## ⚙️ How to Run the Project
+⚙️ How to Run the Project
 
-### Prerequisites
+Prerequisites
 
 * Java 17+
 * Gradle
 * PostgreSQL (optional for production)
 * IDE: IntelliJ, Eclipse, or VS Code
 
-### Steps
+Steps
 
-1. **Clone the repository:**
+1. "Clone the repository:"
 
 ```bash
 git clone https://github.com/gauravVishwakarma071/Bloging-App.git
 ```
 
-2. **Navigate into project directory:**
+2. "Navigate into project directory:"
 
 ```bash
 cd Bloging-App
 ```
 
-3. **Run the application:**
+3. "Run the application:"
 
 ```bash
 ./gradlew bootRun
@@ -89,13 +85,13 @@ cd Bloging-App
 
 or run the main class from your IDE.
 
-4. **Access the application:**
+4. "Access the application:"
 
 ```
 http://localhost:8855/
 ```
 
-5. **Swagger Documentation:**
+5. "Swagger Documentation:"
 
 ```
 http://localhost:8855/swagger-ui/
@@ -103,7 +99,7 @@ http://localhost:8855/swagger-ui/
 
 ---
 
-## 📡 API Endpoints (Partial / Work in Progress)
+📡 API Endpoints (Partial / Work in Progress)
 
 | Method | Endpoint                | Description             |
 | ------ | ----------------------- | ----------------------- |
@@ -119,7 +115,7 @@ http://localhost:8855/swagger-ui/
 
 ---
 
-## 🧠 Learning Objectives
+🧠 Learning Objectives
 
 * Implement **JWT authentication** with Spring Security
 * Use **ModelMapper** for DTO conversion
@@ -130,7 +126,7 @@ http://localhost:8855/swagger-ui/
 
 ---
 
-## 🚧 Project Status
+🚧 Project Status
 
 🏗️ Work in progress — features to add:
 
@@ -141,21 +137,21 @@ http://localhost:8855/swagger-ui/
 
 ---
 
-## 🧑‍💻 Author
+🧑‍💻 Author
 
-**Gaurav Vishwakarma**
+"Gaurav Vishwakarma"
 Spring Boot Developer | Java Enthusiast
 🔗 [LinkedIn Profile](https://www.linkedin.com/in/gauravvishwakarma071)
 
 ---
 
-## ⭐ Acknowledgments
+⭐ Acknowledgments
 
 Special thanks to the online course and instructors guiding this **Spring Boot learning journey**.
 
 ---
 
-## 💬 LinkedIn Post Caption
+💬 LinkedIn Post Caption
 
 > 🚀 **Just Built a Blogging Application using Spring Boot!**
 > I’ve been working on a mini **Blogging App**, a social-media-style platform where users can register, log in, create posts, like and comment — all secured using **Spring Security and JWT** 🔐
