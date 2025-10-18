@@ -35,11 +35,11 @@ This project is under development and is part of a learning journey following an
 
 🧩 Architecture
 
-The project follows **Model-View-Controller (MVC)** for clean separation of concerns:
+The project follows Model-View-Controller (MVC) for clean separation of concerns:
 
 "Controller → Service → Repository → Entity (Model)"
 
-**Entities Overview:**
+Entities Overview:
 
 | Entity            | Fields                                             | Description                 |
 | ----------------- | -------------------------------------------------- | --------------------------- |
@@ -142,34 +142,3 @@ Practice database migrations: "H2 → PostgreSQL"
 🧑‍💻 Author
 
 "Gaurav Vishwakarma"
-Spring Boot Developer | Java Enthusiast
-🔗 [LinkedIn Profile](https://www.linkedin.com/in/gauravvishwakarma071)
-
----
-
-⭐ Acknowledgments
-
-Special thanks to the online course and instructors guiding this **Spring Boot learning journey**.
-
----
-
-💬 LinkedIn Post Caption
-
-> 🚀 Just Built a Blogging Application using Spring Boot!
-> I’ve been working on a mini (Blogging App), a social-media-style platform where users can register, log in, create posts, like and comment — all secured using **Spring Security and JWT** 🔐
->
-> This project helped me dive deep into:
-> ✅ MVC Architecture
-> ✅ JWT Authentication
-> ✅ CRUD APIs with Spring Boot
-> ✅ Swagger for API documentation
-> ✅ Gradle Build Automation
->
-> The project is still under development as I continue learning and improving my Spring Boot skills 💡
->
-> 🔗 Check it out on GitHub: (https://github.com/gauravVishwakarma071/Bloging-App)
->
-> #SpringBoot #Java #JWT #BackendDevelopment #LearningInPublic #OpenSource #APIDevelopment
-
-
-Do you want me to do that next?
